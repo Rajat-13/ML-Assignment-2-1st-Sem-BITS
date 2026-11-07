@@ -35,8 +35,26 @@ def load_model(file_name):
 
 @st.cache_resource
 def load_features():
-    """Ordered list of the 30 feature columns used during training."""
-    return joblib.load(os.path.join(MODEL_DIR, "feature_cols.joblib"))
+    """Ordered list of the 30 feature columns used during training.
+    Uses feature_cols.joblib if present; otherwise falls back to the column names
+    stored inside the fitted pipeline (scikit-learn keeps them in feature_names_in_)."""
+    path = os.path.join(MODEL_DIR, "feature_cols.joblib")
+    if os.path.exists(path):
+        return joblib.load(path)
+    first_model = load_model(list(MODEL_FILES.values())[0])
+    return list(first_model.feature_names_in_)
+
+
+# ---------------- Check that the saved models are really there ----------------
+missing_files = [f for f in MODEL_FILES.values() if not os.path.exists(os.path.join(MODEL_DIR, f))]
+if missing_files:
+    st.error("Saved model files were not found in the deployed repository.")
+    st.write("Looking for a folder named **model** (all lowercase) next to app.py containing:", missing_files)
+    here = os.path.dirname(os.path.abspath(__file__))
+    st.write("Files/folders the app can actually see next to app.py:", sorted(os.listdir(here)))
+    if os.path.isdir(MODEL_DIR):
+        st.write("Contents of model/:", sorted(os.listdir(MODEL_DIR)))
+    st.stop()
 
 
 def compute_metrics(y_true, y_pred, y_prob):
