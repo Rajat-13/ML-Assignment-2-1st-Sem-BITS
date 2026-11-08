@@ -10,7 +10,7 @@ alarm, Recall and the number of false negatives are examined along with Accuracy
 ## b. Dataset Description
 | Item | Detail |
 |---|---|
-| Name / source | Breast Cancer Wisconsin (Diagnostic) - UCI Machine Learning Repository |
+| Name / source | Breast Cancer Wisconsin (Diagnostic) - UCI Machine Learning Repository; https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic |
 | Instances | 569 patients: 357 benign, 212 malignant (minimum required: 500) |
 | Features | 30 numeric features (minimum required: 12) |
 | Feature design | 10 nuclear measurements - radius, texture, perimeter, area, smoothness, compactness, concavity, concave points, symmetry, fractal dimension - each stored as **mean**, **standard error** and **worst** value |
