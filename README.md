@@ -1,5 +1,6 @@
 # Breast Cancer Tumour Classification - ML Assignment 2
 
+
 ## a. Problem Statement
 Doctors need to tell cancerous (malignant) breast lumps apart from harmless (benign) ones. Using 30 numeric
 measurements taken from the cell nuclei in a digitised fine-needle-aspirate (FNA) image, this project builds five
@@ -10,7 +11,7 @@ alarm, Recall and the number of false negatives are examined along with Accuracy
 ## b. Dataset Description
 | Item | Detail |
 |---|---|
-| Name / source | Breast Cancer Wisconsin (Diagnostic) - UCI Machine Learning Repository; https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic |
+| Name / source | Breast Cancer Wisconsin (Diagnostic) - UCI Machine Learning Repository: [https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic) |
 | Instances | 569 patients: 357 benign, 212 malignant (minimum required: 500) |
 | Features | 30 numeric features (minimum required: 12) |
 | Feature design | 10 nuclear measurements - radius, texture, perimeter, area, smoothness, compactness, concavity, concave points, symmetry, fractal dimension - each stored as **mean**, **standard error** and **worst** value |
@@ -30,6 +31,7 @@ https://github.com/Rajat-13/ML-Assignment-2-1st-Sem-BITS/tree/main
 | `README.md` | This document |
 | `test_data.csv` | Test data (30 features + `Target`) used for evaluation and for the app upload |
 | `breast_cancer_wdbc.csv` | Full dataset with column names added |
+| `bits_lab_screenshot.png` | Screenshot proving the app was launched locally on the BITS Virtual Lab |
 | `model/` | Saved trained pipelines (`.joblib`) for all five models and the feature list |
 
 ## d. Models Used
@@ -58,7 +60,7 @@ KNN 0.963, Naive Bayes 0.930, SVM 0.977.
 | **Overall winner** | **Support Vector Machine** - best Accuracy, Precision, F1 and MCC, and also the highest cross-validated accuracy (0.977). Logistic Regression is a close second with the best AUC and the advantage of being simple and easy to interpret. With only 114 test patients one extra error changes accuracy by about 0.9 points, so the cross-validation results are useful support for this ranking. |
 
 ## e. Streamlit App
-https://ml-assignment-2-1st-sem-bits-5wo9yyfttdv6hhn3bu6zua.streamlit.app/](https://ml-assignment-2-1st-sem-bits-5wo9yyfttdv6hhn3bu6zua.streamlit.app/
+**Live app:** [https://ml-assignment-2-1st-sem-bits-5wo9yyfttdv6hhn3bu6zua.streamlit.app/](https://ml-assignment-2-1st-sem-bits-5wo9yyfttdv6hhn3bu6zua.streamlit.app/)
 
 The app (`app.py`) provides:
 1. Upload of a test CSV file (use `test_data.csv`)
@@ -69,9 +71,7 @@ The app (`app.py`) provides:
 
 The saved models are loaded from `model/`; nothing is retrained on the uploaded data.
 
-## How to run
-```bash
-pip install -r requirements.txt
-jupyter notebook ML_Assignment_2.ipynb     # run all cells: recreates model/ and test_data.csv
-streamlit run app.py
-```
+## f. Proof of Execution on BITS Virtual Lab
+The Streamlit app was launched locally (`streamlit run app.py`, served at `localhost:8501`) inside the BITS Virtual Lab
+remote desktop, with `test_data.csv` uploaded. The lab URL, user name and date are visible in the screenshot.
+<img width="1920" height="1029" alt="proof" src="https://github.com/user-attachments/assets/2f65f08b-b11d-4b1e-a991-fe786eb4f169" />
