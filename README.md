@@ -25,7 +25,6 @@ https://github.com/Rajat-13/ML-Assignment-2-1st-Sem-BITS/tree/main
 
 | File / folder | Purpose |
 |---|---|
-| `ML_Assignment_2.ipynb` | Complete code: data loading, EDA, training, evaluation, model saving |
 | `app.py` | Streamlit web application |
 | `requirements.txt` | Python dependencies |
 | `README.md` | This document |
