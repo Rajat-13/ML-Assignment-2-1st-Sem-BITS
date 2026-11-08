@@ -1,8 +1,3 @@
-# ---------------------------------------------------------------
-# Breast Cancer (WDBC) Tumour Classifier - Streamlit app
-# Loads the 5 pre-trained pipelines from /model (NO retraining)
-# and evaluates them on an uploaded test CSV.
-# ---------------------------------------------------------------
 import os
 import joblib
 import pandas as pd
@@ -13,7 +8,7 @@ from sklearn.metrics import (accuracy_score, roc_auc_score, precision_score, rec
                              f1_score, matthews_corrcoef, confusion_matrix,
                              classification_report, roc_curve)
 
-st.set_page_config(page_title="Breast Cancer Classifier", page_icon="🩺", layout="wide")
+st.set_page_config(page_title="Breast Cancer Classifier", page_icon="🎗️", layout="wide")
 
 # Display name -> saved file
 MODEL_FILES = {
@@ -70,7 +65,7 @@ def compute_metrics(y_true, y_pred, y_prob):
 
 
 # ---------------- Header ----------------
-st.title("🩺 Breast Cancer Diagnosis - Model Evaluation Dashboard")
+st.title("🎗️ Model Evaluation Dashboard of Breast Cancer Diagnosis")
 st.write("Upload **test data** (CSV) from the Wisconsin Diagnostic Breast Cancer dataset and see how each of the "
          "five trained models classifies tumours as **Benign (0)** or **Malignant (1)**.")
 st.caption("Educational project only - not a medical diagnostic tool.")
